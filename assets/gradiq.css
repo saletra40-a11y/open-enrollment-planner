@@ -335,3 +335,4 @@ table.data th button { font: inherit; text-transform: inherit; letter-spacing: i
   .section-print-title { display: block; }
   .plan-grid { grid-template-columns: repeat(3, 1fr); }
 }
+@media (min-width: 640px) { .grid.two .cat-row { grid-template-columns: 1fr 1fr 44px; } .grid.two .cat-row > :first-child { grid-column: 1 / -1; } }

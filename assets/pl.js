@@ -85,7 +85,8 @@
   function show(id, scroll) {
     active = id;
     $$("#tabs [data-tab]").forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-tab") === id ? "true" : "false"); });
-    P.sections.forEach(function (s) { $("#pane-" + s.id).hidden = s.id !== id; });
+    P.sections.forEach(function (s) { if (s.id === id) renderSection(s); $("#pane-" + s.id).hidden = s.id !== id; });
+    outs();
     try { history.replaceState(null, "", "#" + id); } catch (e) { /* file:// */ }
     var ab = $('#tabs [data-tab="' + id + '"]'); if (ab && ab.scrollIntoView) try { ab.scrollIntoView({ block: "nearest", inline: "center" }); } catch (e) { /* ignore */ }
   }
